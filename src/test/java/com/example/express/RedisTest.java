@@ -40,7 +40,7 @@ public class RedisTest extends BaseTests {
     @Test
     public void testList() {
         String key = genValue();
-        ArrayList<Integer> list = Lists.list(1, 2, 3, 4, 5, 6);
+        ArrayList<Integer> list = Lists.newArrayList(1, 2, 3, 4, 5, 6);
         redisTemplate.opsForList().rightPushAll(key, list);
 
         List result = redisTemplate.opsForList().range(key, 0, -1);
